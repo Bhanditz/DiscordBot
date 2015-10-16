@@ -349,6 +349,7 @@ var commands = {
         description: "Returns the match id of doto",
         process: function(bot,msg,suffix) {
           https.get("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/?match_id=" + suffix + "&key=" + AuthDetails.dota, function(err, result) {
+            console.log(err)
             if(!err)
               bot.sendMessage(msg.channel,result);
             else bot.sendMessage("DIDN'T WORK LOL");

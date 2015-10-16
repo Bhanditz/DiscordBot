@@ -21,8 +21,7 @@ var qs = require("querystring");
 
 var htmlToText = require('html-to-text');
 
-var Dota2Api = require('dota').dota2api;
-var dota2api = new Dota2Api(AuthDetails.dota,"en_us","JSON")
+var http = require("http");
 
 var config = {
     "api_key": "dc6zaTOxFJmzC",
@@ -349,7 +348,7 @@ var commands = {
         usage: "[match id]",
         description: "Returns the match id of doto",
         process: function(bot,msg,suffix) {
-          dota2api.getMatchDetails({match_id: suffix}, function(err, result){
+          http.get("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/?match_id=" + suffix + "&key=" + AuthDetails.dota, function(err, result) {
             if(!err)
               bot.sendMessage(msg.channel,result);
             else bot.sendMessage("DIDN'T WORK LOL");

@@ -22,7 +22,7 @@ var qs = require("querystring");
 var htmlToText = require('html-to-text');
 
 var Dota2Api = require('dota2-api');
-var da = Dota2Api.create(AuthDetails.dota);
+var da = Dota2Api.create(AuthDetails.dota, 570);
 
 var config = {
     "api_key": "dc6zaTOxFJmzC",

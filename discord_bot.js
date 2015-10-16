@@ -349,7 +349,7 @@ var commands = {
         description: "Returns the match id of doto",
         process: function(bot,msg,suffix) {
           https.get("https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/?match_id=" + suffix + "&key=" + AuthDetails.dota, function(data) {
-            res.on('data', function(d) {
+            data.on('data', function(d) {
               bot.sendMessage(msg.channel,d);
             });
           });

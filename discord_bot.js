@@ -42,7 +42,9 @@ var meme = {
 	"drevil": 40945639,
 	"skeptical": 101711,
 	"notime": 442575,
-	"yodawg": 101716
+	"yodawg": 101716,
+  "awkpeng": 61524,
+  "antijoke": 61541
 };
 
 var game_abbreviations = {
@@ -301,7 +303,7 @@ var commands = {
                     //bot.sendMessage(msg.channel,JSON.stringify(snapshot));
                     bot.sendMessage(msg.channel,snapshot.name
                         + "\nprice: $" + snapshot.lastTradePriceOnly);
-                }  
+                }
             });
         }
     },
@@ -404,7 +406,7 @@ bot.on("disconnected", function () {
 
 	console.log("Disconnected!");
 	process.exit(1); //exit node.js with an error
-	
+
 });
 
 bot.on("message", function (msg) {
@@ -444,13 +446,13 @@ bot.on("message", function (msg) {
         if(msg.author == bot.user){
             return;
         }
-        
+
         if (msg.author != bot.user && msg.isMentioned(bot.user)) {
                 bot.sendMessage(msg.channel,msg.author + ", you called?");
         }
     }
 });
- 
+
 
 //Log user status changes
 bot.on("presence", function(data) {

@@ -352,6 +352,7 @@ var commands = {
           da.getMatchDetails({match_id: suffix}, function(err, result){
             if(!err)
               bot.sendMessage(msg.channel,result);
+            else bot.sendMessage("DIDN'T WORK LOL");
           });
         }
     }

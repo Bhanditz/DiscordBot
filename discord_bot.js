@@ -351,7 +351,7 @@ var commands = {
         process: function(bot,msg,suffix) {
           da.getMatchDetails({match_id: suffix}, function(err, result){
             if(!err)
-              console.log(result);
+              bot.sendMessage(msg.channel,result);
           });
         }
     }

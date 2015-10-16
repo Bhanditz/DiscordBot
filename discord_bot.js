@@ -21,6 +21,9 @@ var qs = require("querystring");
 
 var htmlToText = require('html-to-text');
 
+var Dota2Api = require('dota2-api');
+var da = Dota2Api.create(AuthDetails.dota);
+
 var config = {
     "api_key": "dc6zaTOxFJmzC",
     "rating": "r",
@@ -340,6 +343,16 @@ var commands = {
                 path = "/r/"+suffix+path;
             }
             rssfeed(bot,msg,"https://www.reddit.com"+path,1,false);
+        }
+    },
+    "dotamatch": {
+        usage: "[match id]",
+        description: "Returns the match id of doto",
+        process: function(bot,msg,suffix) {
+          da.getMatchDetails({match_id: suffix}, function(err, result){
+            if(!err)
+              console.log(result);
+          });
         }
     }
 };
